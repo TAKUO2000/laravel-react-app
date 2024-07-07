@@ -10,4 +10,11 @@ export default defineConfig({
         }),
         react(),
     ],
+    // docker環境でのホットリロード有効化
+    server: {
+        host: true,
+        hmr: {
+            host: 'localhost',
+        },
+    },
 });
