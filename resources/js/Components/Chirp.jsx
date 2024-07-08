@@ -9,17 +9,17 @@ import { useForm, usePage } from '@inertiajs/react';
 dayjs.extend(relativeTime);
 
 export default function Chirp({ chirp }) {
-    const{ auth } = usePage().props;
+    const { auth } = usePage().props;
 
-    const[editing, setEditing] = useState(false);
+    const [editing, setEditing] = useState(false);
 
-    const{date, setData, patch, clearErrors, reset, errors } = useForm({
+    const { data, setData, patch, clearErrors, reset, errors } = useForm({
         message: chirp.message,
     });
 
     const submit = (e) => {
         e.preventDefault();
-        patch(route('chirps.update',chirps.id),{ onSuccess: ()=> setEditing(false)});
+        patch(route('chirps.update',chirp.id),{ onSuccess: ()=> setEditing(false) });
     };
 
     return (
